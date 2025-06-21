@@ -8,7 +8,7 @@ export const SidebarItems = [
     subItems: [
       {
         title: "Drawer",
-        url: "/ui-components/drawers-ui",
+        url: "/ui-components/ui-design/drawers-ui",
       },
       {
         title: "Buttons",

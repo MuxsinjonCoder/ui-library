@@ -13,8 +13,8 @@ export default function NotFound() {
         <p className="text-sm opacity-75">
           Sorry, the page you are looking for does not exist or has been moved.
         </p>
-        <Button onClick={() => router.push("/")} className="mt-4">
-          Return to Home
+        <Button onClick={() => router.back()} className="mt-4">
+          Back
         </Button>
       </div>
     </div>

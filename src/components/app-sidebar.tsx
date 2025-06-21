@@ -191,7 +191,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Dot } from "lucide-react";
 import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
 import { SidebarItems } from "@/constants/sidebar-data";
@@ -238,7 +238,8 @@ export function AppSidebar() {
                       onClick={() => handleToggle(index)}
                       className="w-full flex justify-between"
                     >
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center font-bold backdrop-blur-md text-white w-full gap-2">
+                        <Dot className="size-10 -mr-4 h-4 -ml-7" />{" "}
                         <span>{item.title}</span>
                       </div>
                       <ChevronDown
