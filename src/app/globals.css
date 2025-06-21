@@ -1,0 +1,182 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius));
+  --radius-md: calc(var(--radius) + 10px);
+  --radius-lg: calc(var(--radius) + 20px);
+  --radius-xl: calc(var(--radius) + 30px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* additioanl */
+  --color-info: var(--info);
+  --color-warning: var(--warning);
+  --color-success: var(--success);
+  --color-orange: var(--orange);
+  --color-pink: var(--pink);
+  --color-blue: var(--blue);
+}
+
+:root {
+  --radius: 10px;
+
+  /* Asosiy ranglar */
+  --primary: oklch(15% 0.015 270); /* #04011b ga yaqin */
+  --primary-foreground: oklch(98% 0 0); /* oq */
+
+  --secondary: oklch(60% 0.22 282); /* #4F44DE ga yaqin */
+  --secondary-foreground: oklch(98% 0 0); /* oq */
+
+  /* Fon va matn */
+  --background: oklch(99% 0.005 270);
+  --foreground: oklch(15% 0.015 270);
+
+  /* Card */
+  --card: oklch(96% 0.005 270);
+  --card-foreground: var(--foreground);
+
+  /* Popover */
+  --popover: var(--card);
+  --popover-foreground: var(--foreground);
+
+  /* Muted & Accent */
+  --muted: oklch(85% 0.01 270);
+  --muted-foreground: oklch(55% 0.01 270);
+  --accent: oklch(85% 0.02 270);
+  --accent-foreground: var(--foreground);
+
+  /* Destructive */
+  --destructive: oklch(57.7% 0.245 27.325); /* qizil */
+  --input: oklch(92% 0.005 270);
+  --border: var(--input);
+  --ring: oklch(70% 0.01 270);
+
+  /* Diagram ranglar */
+  --chart-1: oklch(64.6% 0.22 40); /* orange-tusi */
+  --chart-2: oklch(60% 0.12 282); /* secondary */
+  --chart-3: oklch(40% 0.07 270); /* quyuq */
+  --chart-4: oklch(82.8% 0.18 84); /* light green */
+  --chart-5: oklch(76.9% 0.18 60); /* soft orange */
+
+  /* Sidebar */
+  --sidebar: oklch(10% 0.01 270); /* dark */
+  --sidebar-foreground: oklch(95% 0 0);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--secondary);
+  --sidebar-accent-foreground: var(--secondary-foreground);
+  --sidebar-border: oklch(25% 0.01 270);
+  --sidebar-ring: oklch(40% 0.01 270);
+
+  /* Qo'shimcha ranglar */
+  --info: oklch(75% 0.2 250);
+  --warning: oklch(85% 0.25 80);
+  --success: oklch(70% 0.2 140);
+  --orange: oklch(75% 0.25 60);
+  --pink: oklch(80% 0.25 340);
+  --blue: oklch(55% 0.2 265);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Scrollbar uchun chiroyli dizayn */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary);
+  border-radius: var(--radius);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--secondary); /* accent purple */
+  border-radius: var(--radius);
+  border: 2px solid var(--sidebar); /* fon bilan uyg'un */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: oklch(65% 0.22 282); /* biroz ochroq secondary */
+}
