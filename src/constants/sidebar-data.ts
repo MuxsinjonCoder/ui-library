@@ -22,10 +22,6 @@ export const SidebarItems = [
       //   title: "Accordions",
       //   url: "/ui-components/ui-design/acordions-ui",
       // },
-      {
-        title: "Modals",
-        url: "/ui-components/ui-design/modals-ui",
-      },
     ],
   },
 
@@ -35,16 +31,20 @@ export const SidebarItems = [
     url: "/",
     subItems: [
       {
+        title: "Modals",
+        url: "/ui-components/modals-design/modals-ui",
+      },
+      {
         title: "Post modal",
-        url: "/ui-components/post-modal-ui",
+        url: "/ui-components/modals-design/post-modal-ui",
       },
       {
         title: "Test modal",
-        url: "/ui-components/test-modal-ui",
+        url: "/ui-components/modals-design/test-modal-ui",
       },
       {
         title: "Role add modal",
-        url: "/ui-components/role-add-modal-ui",
+        url: "/ui-components/modals-design/role-add-modal-ui",
       },
     ],
   },

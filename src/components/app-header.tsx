@@ -82,15 +82,16 @@ export default function AppHeader() {
           </Link>
           <Link
             className={`flex items-center gap-0 ${
-              path === "/ui-components/ui-design/drawers-ui"
+              path === "/ui-components" || path?.includes("/ui-components")
                 ? "text-white font-bold"
                 : "text-white opacity-70 font-medium"
             }`}
-            href={"/ui-components/ui-design/drawers-ui"}
+            href={"/ui-components"}
           >
-            {path === "/ui-components/ui-design/drawers-ui" && (
-              <Dot className="text-white size-10 -mr-3" />
-            )}{" "}
+            {path === "/ui-components" ||
+              (path?.includes("/ui-components") && (
+                <Dot className="text-white size-10 -mr-3" />
+              ))}{" "}
             Components
           </Link>
         </div>

@@ -5,15 +5,18 @@ import { Copy, ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
+import { Highlight, themes } from "prism-react-renderer";
 
 interface TerminalCodePropsTypes {
   code: string;
   fileName: string;
+  language?: string;
 }
 
 export default function CodePreview({
   code,
   fileName,
+  language = "tsx",
 }: TerminalCodePropsTypes) {
   const [isCopied, setIsCopied] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -58,9 +61,22 @@ export default function CodePreview({
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <pre className="px-4 py-2 overflow-x-auto">
-              <code className="text-sm font-mono text-gray-200">{code}</code>
-            </pre>
+            <Highlight theme={themes.vsDark} code={code} language={language}>
+              {({ className, style, tokens, getLineProps, getTokenProps }) => (
+                <pre
+                  className={cn("px-4 py-2 text-sm overflow-x-auto", className)}
+                  style={style}
+                >
+                  {tokens.map((line, i) => (
+                    <div key={i} {...getLineProps({ line, key: i })}>
+                      {line.map((token, key) => (
+                        <span key={key} {...getTokenProps({ token, key })} />
+                      ))}
+                    </div>
+                  ))}
+                </pre>
+              )}
+            </Highlight>
           </motion.div>
         </AnimatePresence>
         <div className="flex justify-center py-2 bg-gray-900 border-t border-gray-800">
