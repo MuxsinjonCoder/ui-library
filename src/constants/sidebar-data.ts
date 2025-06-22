@@ -12,19 +12,19 @@ export const SidebarItems = [
       },
       {
         title: "Buttons",
-        url: "/ui-components/buttons-ui",
+        url: "/ui-components/ui-design/buttons-ui",
       },
       {
         title: "Tabs",
-        url: "/ui-components/tabs-ui",
+        url: "/ui-components/ui-design/tabs-ui",
       },
-      {
-        title: "Accordions",
-        url: "/ui-components/acordions-ui",
-      },
+      // {
+      //   title: "Accordions",
+      //   url: "/ui-components/ui-design/acordions-ui",
+      // },
       {
         title: "Modals",
-        url: "/ui-components/modals-ui",
+        url: "/ui-components/ui-design/modals-ui",
       },
     ],
   },

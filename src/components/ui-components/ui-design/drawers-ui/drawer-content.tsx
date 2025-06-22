@@ -64,7 +64,7 @@ function DrawerContentInner() {
               <CardTitle className="text-white">Drawer types below:</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="flex items-center justify-center gap-5 w-full">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 w-full">
                 <Button
                   onClick={() => {
                     setDrawerOpen(true);
