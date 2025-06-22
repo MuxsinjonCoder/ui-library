@@ -46,7 +46,7 @@ export default function RootLayout({
                   <AppSidebar />
                 </div>
                 <div className="flex flex-col gap-10 container mx-auto w-full">
-                  <div className="fixed top-2 left-1/2 -translate-x-1/2 w-full">
+                  <div className="z-50 fixed top-2 left-1/2 -translate-x-1/2 w-full">
                     <div className="container mx-auto backdrop-blur-[3px] border-2 border-secondary py-2 px-4 rounded-full">
                       <AppHeader />
                     </div>
