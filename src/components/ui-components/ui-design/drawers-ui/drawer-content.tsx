@@ -8,8 +8,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useRouter, useSearchParams } from "next/navigation";
 import TerminalCode from "@/components/reuseable/terminal-code";
 import CodePreview from "@/components/reuseable/code-preview";
+import { Suspense } from "react";
 
-export default function DrawerContent() {
+function DrawerContentInner() {
   // states
   const [isDrawerOpen, setDrawerOpen] = useState(false);
   const [drawerOrientation, setDrawerOrientation] = useState<
@@ -17,7 +18,7 @@ export default function DrawerContent() {
   >("right");
   const [tabValue, setTabValue] = useState("preview");
 
-  // halpers
+  // helpers
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -108,7 +109,7 @@ export default function DrawerContent() {
           <Card>
             <CardHeader>
               <CardTitle className="text-white text-xl">
-                You need to install tools bellow for use drawer:
+                You need to install tools below for use drawer:
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -130,12 +131,12 @@ export default function DrawerContent() {
           <Card className="mt-5">
             <CardHeader>
               <CardTitle className="text-white text-xl">
-                Drawer component file and useage of this drawer bellow:
+                Drawer component file and usage of this drawer below:
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="flex items-start gap-0 flex-col">
-                <h3 className="font-medium text-white">Drawer codes bellow:</h3>
+                <h3 className="font-medium text-white">Drawer codes below:</h3>
                 <CodePreview
                   code={`
     "use client";
@@ -202,7 +203,7 @@ export default function DrawerContent() {
 
               <div className="flex items-start gap-0 flex-col mt-10">
                 <h3 className="font-medium text-white">
-                  Useage of drawer component:
+                  Usage of drawer component:
                 </h3>
                 <CodePreview
                   code={`
@@ -273,5 +274,13 @@ export default function DrawerExample() {
         </div>
       </Reuseabledrawer>
     </>
+  );
+}
+
+export default function DrawerContent() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <DrawerContentInner />
+    </Suspense>
   );
 }
