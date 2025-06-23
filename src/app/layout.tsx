@@ -8,6 +8,7 @@ import AppHeader from "@/components/app-header";
 import { Button } from "@/components/ui/button";
 import { PenTool } from "lucide-react";
 import Link from "next/link";
+import { Toaster } from "@/components/ui/sonner";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -40,6 +41,7 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <Providers>
           <main>{children}</main>
+          <Toaster />
           {/* <SidebarProvider>
             <main className="w-full">
               <div className="flex items-start justify-between">

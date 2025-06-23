@@ -171,9 +171,9 @@ function PostModalContentInner() {
         <TabsContent value="preview">
           <Card>
             <CardHeader>
-              <CardTitle className="text-2xl font-bold text-white">
+              {/* <CardTitle className="text-2xl font-bold text-white">
                 Drawer types below:
-              </CardTitle>
+              </CardTitle> */}
             </CardHeader>
             <CardContent>
               <Button onClick={() => setAddPostModalOpen(true)}>
