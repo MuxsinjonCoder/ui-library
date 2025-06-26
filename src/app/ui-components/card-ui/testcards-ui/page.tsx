@@ -1,4 +1,4 @@
-import ModalsContent from "@/components/ui-components/modals-design/modals-ui/modals-content";
+import TestCardContent from "@/components/ui-components/card-ui/testcards-ui/test-card-content";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -16,7 +16,7 @@ export default function TestcardsUIPage() {
           Test cards
         </h1>
         <div className="mt-7">
-          <ModalsContent />
+          <TestCardContent />
         </div>
       </div>
     </>
