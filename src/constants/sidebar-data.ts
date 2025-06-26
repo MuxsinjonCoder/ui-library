@@ -7,6 +7,10 @@ export const SidebarItems = [
     url: "/",
     subItems: [
       {
+        title: "Terminal code",
+        url: "/ui-components/ui-design/terminal-code",
+      },
+      {
         title: "Drawer",
         url: "/ui-components/ui-design/drawers-ui",
       },
@@ -82,24 +86,24 @@ export const SidebarItems = [
   },
 
   // sections
-  {
-    title: "Sections",
-    url: "/",
-    subItems: [
-      {
-        title: "Header",
-        url: "/ui-components/header-ui",
-      },
-      {
-        title: "Footer",
-        url: "/ui-components/footer-ui",
-      },
-      {
-        title: "Contact",
-        url: "/ui-components/postcard-ui",
-      },
-    ],
-  },
+  // {
+  //   title: "Sections",
+  //   url: "/",
+  //   subItems: [
+  //     {
+  //       title: "Header",
+  //       url: "/ui-components/header-ui",
+  //     },
+  //     {
+  //       title: "Footer",
+  //       url: "/ui-components/footer-ui",
+  //     },
+  //     {
+  //       title: "Contact",
+  //       url: "/ui-components/postcard-ui",
+  //     },
+  //   ],
+  // },
 
   // {
   //   title: "Xodimlarga topshiriq",
