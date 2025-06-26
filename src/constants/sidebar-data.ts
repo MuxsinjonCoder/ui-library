@@ -72,15 +72,15 @@ export const SidebarItems = [
     subItems: [
       {
         title: "Notifications",
-        url: "/ui-components/notifications-ui",
+        url: "/ui-components/pages-ui/notifications",
       },
       {
         title: "Roles",
-        url: "/ui-components/roles-ui",
+        url: "/ui-components/pages-ui/roles",
       },
       {
         title: "Profile",
-        url: "/ui-components/profile-ui",
+        url: "/ui-components/pages-ui/profile",
       },
     ],
   },
