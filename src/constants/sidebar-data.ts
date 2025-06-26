@@ -56,11 +56,11 @@ export const SidebarItems = [
     subItems: [
       {
         title: "Post card",
-        url: "/ui-components/postcard-ui",
+        url: "/ui-components/card-ui/postcard-ui",
       },
       {
         title: "Test card",
-        url: "/ui-components/testcard-ui",
+        url: "/ui-components/card-ui/testcards-ui",
       },
     ],
   },
