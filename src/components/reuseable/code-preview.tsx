@@ -71,13 +71,27 @@ export default function CodePreview({
                   className={cn("px-4 py-2 text-sm overflow-x-auto", className)}
                   style={style}
                 >
-                  {tokens.map((line, i) => (
-                    <div key={i} {...getLineProps({ line, key: i })}>
-                      {line.map((token, key) => (
-                        <span key={key} {...getTokenProps({ token, key })} />
-                      ))}
-                    </div>
-                  ))}
+                  {tokens.map((line, i) => {
+                    const { key: lineKey, ...lineProps } = getLineProps({
+                      line,
+                      key: i,
+                    });
+
+                    return (
+                      <div key={String(lineKey)} {...lineProps}>
+                        {line.map((token, tokenIndex) => {
+                          const { key: tokenKey, ...tokenProps } =
+                            getTokenProps({
+                              token,
+                              key: tokenIndex,
+                            });
+                          return (
+                            <span key={String(tokenKey)} {...tokenProps} />
+                          );
+                        })}
+                      </div>
+                    );
+                  })}
                 </pre>
               )}
             </Highlight>

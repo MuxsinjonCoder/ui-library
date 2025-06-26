@@ -1,19 +1,10 @@
 "use client";
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { Button } from "./ui/button";
-import { Bell, Dot, LibraryBig, LogOut, User } from "lucide-react";
+import { Bell, Dot, LibraryBig } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { Avatar, AvatarFallback } from "./ui/avatar";
 import { AppSidebar } from "./app-sidebar";
 import {
   Sheet,
@@ -48,15 +39,17 @@ export default function AppHeader() {
   return (
     <>
       <div className="flex items-center justify-between gap-5">
-        <div className="flex items-center">
-          <LibraryBig className="text-white sm:size-10" />
-          <h2 className="text-white text-xl font-bold sm:text-2xl pl-2 border-l-2 ml-1 relative">
-            UI{" "}
-            <span className="text-xs sm:text-sm absolute -top-2 left-8 opacity-70">
-              library
-            </span>
-          </h2>
-        </div>
+        <Link href={"/"}>
+          <div className="flex items-center">
+            <LibraryBig className="text-white sm:size-10" />
+            <h2 className="text-white text-xl font-bold sm:text-2xl pl-2 border-l-2 ml-1 relative">
+              UI{" "}
+              <span className="text-xs sm:text-sm absolute -top-2 left-8 opacity-70">
+                library
+              </span>
+            </h2>
+          </div>
+        </Link>
 
         <div className="hidden lg:flex items-center justify-end gap-5">
           <Link
@@ -113,14 +106,14 @@ export default function AppHeader() {
       <Sheet open={isDrawerOpen} onOpenChange={setDrawerOpen}>
         <SheetContent
           side="left"
-          className="p-0 w-[16rem] bg-sidebar/80 text-sidebar-foreground"
+          className="p-0 w-[16rem] bg-gradient-to-b from-gray-900 to-gray-800 text-white border-r border-gray-700 shadow-xl"
         >
           <SheetHeader className="sr-only">
             <SheetTitle>Sidebar</SheetTitle>
             <SheetDescription>Mobile sidebar navigation</SheetDescription>
           </SheetHeader>
-          <div className="flex flex-col h-full">
-            <AppSidebar />
+          <div className="flex flex-col h-full overflow-y-auto custom-scrollbar">
+            <AppSidebar onLinkClick={() => setDrawerOpen(false)} />
           </div>
         </SheetContent>
       </Sheet>

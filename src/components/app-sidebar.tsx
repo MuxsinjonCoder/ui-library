@@ -198,7 +198,7 @@ import { SidebarItems } from "@/constants/sidebar-data";
 import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
 
-export function AppSidebar() {
+export function AppSidebar({ onLinkClick }: { onLinkClick?: () => void }) {
   const pathname = usePathname();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -262,9 +262,10 @@ export function AppSidebar() {
                             {item.subItems.map((subItem, subIndex) => {
                               const isActive = pathname === subItem.url;
                               return (
-                                <Link
+                               <Link
                                   key={subIndex}
                                   href={subItem.url}
+                                  onClick={onLinkClick}
                                   className="w-full"
                                 >
                                   <Button

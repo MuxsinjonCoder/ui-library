@@ -425,22 +425,20 @@ export default function UserQuestions({
           <div className="sticky w-full top-0 left-0 right-0 backdrop-blur-md">
             <QuestionsHeader title={"Sample test conllection"} />
           </div>
-          <div className="flex px-5 items-start justify-between gap-5">
-            <div className="flex flex-wrap gap-10 items-start justify-between w-[60%]">
-              {sampleQuestions?.map(
-                (question: GotQuestionTypes, index: number) => (
-                  <QuestionCard
-                    key={index}
-                    setSelectedTestOptions={setSelectedTestOptions}
-                    test={question}
-                    index={index}
-                    admin={false}
-                    routingQuestionID={routingQuestionID}
-                  />
-                )
-              )}
+          <div className="flex px-5 items-start justify-between gap-5 flex-col lg:flex-row">
+            <div className="flex flex-wrap gap-5 items-start justify-center w-full lg:w-[60%]">
+              {sampleQuestions?.map((question, index) => (
+                <QuestionCard
+                  key={index}
+                  setSelectedTestOptions={setSelectedTestOptions}
+                  test={question}
+                  index={index}
+                  admin={false}
+                  routingQuestionID={routingQuestionID}
+                />
+              ))}
             </div>
-            <div className="w-[35%] sticky top-20 right-0">
+            <div className="w-full lg:w-[35%] sticky top-20 right-0 mt-5 lg:mt-0">
               <QuestionSelected
                 test={sampleQuestions}
                 selectedTestOptions={selectedTestOptions}
