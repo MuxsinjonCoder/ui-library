@@ -11,6 +11,10 @@ export const SidebarItems = [
         url: "/ui-components/ui-design/terminal-code",
       },
       {
+        title: "Code preview",
+        url: "/ui-components/ui-design/code-preview",
+      },
+      {
         title: "Drawer",
         url: "/ui-components/ui-design/drawers-ui",
       },

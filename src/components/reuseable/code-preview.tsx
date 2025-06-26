@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Copy, ChevronDown, ChevronUp } from "lucide-react";
+import { Copy, ChevronDown, ChevronUp, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
@@ -51,7 +51,11 @@ export default function CodePreview({
             )}
             title={isCopied ? "Copied!" : "Copy code"}
           >
-            <Copy className="h-4 w-4" />
+            {isCopied ? (
+              <Check className="size-5" />
+            ) : (
+              <Copy className="h-4 w-4" />
+            )}
           </Button>
         </div>
         <AnimatePresence initial={false}>
