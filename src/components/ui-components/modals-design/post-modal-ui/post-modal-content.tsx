@@ -138,7 +138,7 @@ function PostModalContentInner() {
     setTabValue(tab);
     const titles = { preview: "Preview", code: "Code" };
     const tabKey = tab === "preview" || tab === "code" ? tab : "preview";
-    document.title = `Drawer - ${titles[tabKey]}`;
+    document.title = `Post modal - ${titles[tabKey]}`;
   }, [searchParams]);
 
   // Ensure cursor starts at the end of content

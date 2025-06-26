@@ -64,7 +64,7 @@ function ModalsContentInner() {
     setTabValue(tab);
     const titles = { preview: "Preview", code: "Code" };
     const tabKey = tab === "preview" || tab === "code" ? tab : "preview";
-    document.title = `Buttons - ${titles[tabKey]}`;
+    document.title = `Modals - ${titles[tabKey]}`;
   }, [searchParams]);
 
   // functions
