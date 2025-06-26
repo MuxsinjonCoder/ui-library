@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -30,39 +30,34 @@ const formSchema = z
   .object({
     oldPassword: z
       .string()
-      .min(6, { message: "Parol kamida 6 ta belgidan iborat bo'lishi kerak." })
+      .min(6, { message: "Password must be at least 6 characters long." })
       .max(50, {
-        message: "Parolning maksimal uzunligi 50 ta belgidan oshmasligi kerak.",
+        message: "Password must not exceed 50 characters.",
       }),
     newPassword: z
       .string()
-      .min(6, { message: "Parol kamida 6 ta belgidan iborat bo'lishi kerak." })
+      .min(6, { message: "Password must be at least 6 characters long." })
       .max(50, {
-        message: "Parolning maksimal uzunligi 50 ta belgidan oshmasligi kerak.",
+        message: "Password must not exceed 50 characters.",
       }),
     confirmPassword: z
       .string()
-      .min(6, { message: "Parol kamida 6 ta belgidan iborat bo'lishi kerak." })
+      .min(6, { message: "Password must be at least 6 characters long." })
       .max(50, {
-        message: "Parolning maksimal uzunligi 50 ta belgidan oshmasligi kerak.",
+        message: "Password must not exceed 50 characters.",
       }),
   })
   .refine((data) => data.newPassword === data.confirmPassword, {
-    message: "Parollar mos kelmadi.",
+    message: "Passwords do not match.",
     path: ["confirmPassword"],
   });
 
 export default function ChangePassword() {
-  // contexts
-  // const { user } = useUser();
-
-  // states
   const [isOpen, setIsOpen] = useState(false);
   const [showOldPassword, setShowOldPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  // forms
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -72,74 +67,39 @@ export default function ChangePassword() {
     },
   });
 
-  // queries
-  // const updatePassword = useUpdatePassword();
-
-  // halpers
-  // const { toast } = useToast();
-
-  // functions
   const onSubmit = (values: z.infer<typeof formSchema>) => {
-    /* console.log("values in ChangePassword form: ", values);
-
-    const updatingPassword = {
-      oldPassword: values?.oldPassword,
-      newPassword: values?.newPassword,
-    };
-
-    updatePassword.mutate(
-      { data: updatingPassword, id: user?.id as number },
-      {
-        onSuccess: () => {
-          form.reset();
-          setIsOpen(false);
-          toast({
-            title: `Savol muvaffaqiyyatli o'zgartirildi.`,
-          });
-        },
-        onError: (error) => {
-          const err = error as { response?: { data?: { message?: string } } };
-          toast({
-            title:
-              err?.response?.data?.message ||
-              "Savolni o'zgartirishda muammo yuz berdi.",
-            variant: "error",
-          });
-        },
-      }
-    ); */
+    // handle password update logic here
   };
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
         <div className="max-w-[300px]">
-          <Button onClick={() => setIsOpen(true)}>Parolni o'zgartirish</Button>
+          <Button onClick={() => setIsOpen(true)}>Change Password</Button>
         </div>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Parolni o'zgartirish</DialogTitle>
+          <DialogTitle>Change Password</DialogTitle>
           <DialogDescription>
-            Parolni yodda saqlash oson va xavfsiz tarzda tanlang, kerak bo'lsa
-            xavfsiz joyda saqlang.
+            Choose a password that's easy to remember and secure. Store it
+            somewhere safe if needed.
           </DialogDescription>
         </DialogHeader>
         <div className="my-5">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              {/* oldPassword */}
               <FormField
                 control={form.control}
                 name="oldPassword"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Eski parol</FormLabel>
+                    <FormLabel>Old Password</FormLabel>
                     <FormControl>
                       <div className="relative">
                         <Input
                           type={showOldPassword ? "text" : "password"}
-                          placeholder="Eski parolni kiriting"
+                          placeholder="Enter your current password"
                           {...field}
                         />
                         <Button
@@ -162,18 +122,17 @@ export default function ChangePassword() {
                 )}
               />
 
-              {/* newPassword */}
               <FormField
                 control={form.control}
                 name="newPassword"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Yangi parol</FormLabel>
+                    <FormLabel>New Password</FormLabel>
                     <FormControl>
                       <div className="relative">
                         <Input
                           type={showNewPassword ? "text" : "password"}
-                          placeholder="Yangi parolni kiriting"
+                          placeholder="Enter a new password"
                           {...field}
                         />
                         <Button
@@ -196,18 +155,17 @@ export default function ChangePassword() {
                 )}
               />
 
-              {/* confirmPassword */}
               <FormField
                 control={form.control}
                 name="confirmPassword"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Parolni tasdiqlash</FormLabel>
+                    <FormLabel>Confirm Password</FormLabel>
                     <FormControl>
                       <div className="relative">
                         <Input
                           type={showConfirmPassword ? "text" : "password"}
-                          placeholder="Yangi parol bilan bir xil bo'lishi kerak"
+                          placeholder="Must match the new password"
                           {...field}
                         />
                         <Button
@@ -241,10 +199,10 @@ export default function ChangePassword() {
                     setIsOpen(false);
                   }}
                 >
-                  Bekor qilish
+                  Cancel
                 </Button>
                 <Button type="submit" variant="submit">
-                  Parolni o'zgartirish
+                  Change Password
                 </Button>
               </DialogFooter>
             </form>

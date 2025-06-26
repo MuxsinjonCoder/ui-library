@@ -75,10 +75,6 @@ export const SidebarItems = [
         url: "/ui-components/pages-ui/notifications",
       },
       {
-        title: "Roles",
-        url: "/ui-components/pages-ui/roles",
-      },
-      {
         title: "Profile",
         url: "/ui-components/pages-ui/profile",
       },
