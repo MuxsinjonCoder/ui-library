@@ -41,7 +41,7 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <Providers>
           <SidebarProvider>
-            <main className="w-full">
+            <main className="w-full overflow-y-auto fixed inset-0 bg-fixed animate-gradient bg-gradient-to-br from-primary via-secondary to-primary bg-[length:300%_300%] transition-all duration-1000">
               <div className="flex flex-col gap-10 container mx-auto w-full">
                 <div className="z-50 fixed top-2 left-1/2 -translate-x-1/2 w-full">
                   <div className="container mx-auto backdrop-blur-[3px] border-2 border-secondary py-2 px-4 rounded-full">
