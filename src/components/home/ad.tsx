@@ -116,7 +116,7 @@ export default function AdSection() {
   ];
 
   return (
-    <section className="bg-fixed animate-gradient bg-gradient-to-br from-primary via-secondary to-primary bg-[length:300%_300%] transition-all duration-1000 py-8 md:py-16">
+    <section className="rounded-md bg-fixed animate-gradient bg-gradient-to-br from-primary via-secondary to-primary bg-[length:300%_300%] transition-all duration-1000 py-8 md:py-16">
       <motion.div
         className="container mx-auto px-4"
         variants={containerVariants}
