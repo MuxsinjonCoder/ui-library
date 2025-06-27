@@ -1,4 +1,5 @@
 import AdSection from "@/components/home/ad";
+import ExampleComps from "@/components/home/example-comps";
 import HeroSection from "@/components/home/hero";
 import { Metadata } from "next";
 
@@ -20,6 +21,7 @@ export default function Home() {
     <>
       <HeroSection />
       <AdSection />
+      <ExampleComps />
     </>
   );
 }

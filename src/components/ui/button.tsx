@@ -22,7 +22,7 @@ const buttonVariants = cva(
         icon: "bg-transparent py-2 px-2 hover:bg-primary/20 rounded-full",
         outline: "bg-transparent border-2 rounded-md text-primary",
         submit:
-          "bg-primary text-primary-foreground shadow hover:bg-primary/90 flex items-center justify-center rounded-md",
+          "bg-green-600 text-primary-foreground shadow hover:bg-green-500 flex items-center justify-center rounded-md",
       },
       size: {
         default: "py-2 px-4 w-full",

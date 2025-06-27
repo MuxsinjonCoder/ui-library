@@ -278,140 +278,140 @@ export default function UserQuestions({
 
   // helpers
   // prevent leave website, refresh actions, close tab, copy, and screenshots
-  useEffect(() => {
-    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
-      e.preventDefault();
-      e.returnValue =
-        "Are you sure you want to leave the test? If you leave, you won't be able to retake it!";
-    };
+  // useEffect(() => {
+  //   const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+  //     e.preventDefault();
+  //     e.returnValue =
+  //       "Are you sure you want to leave the test? If you leave, you won't be able to retake it!";
+  //   };
 
-    const handleRouteChange = () => {
-      const confirmLeave = window.confirm(
-        "Are you sure you want to leave the test? If you leave, you won't be able to retake it!"
-      );
-      if (!confirmLeave) {
-        throw "Route change aborted.";
-      }
-    };
+  //   const handleRouteChange = () => {
+  //     const confirmLeave = window.confirm(
+  //       "Are you sure you want to leave the test? If you leave, you won't be able to retake it!"
+  //     );
+  //     if (!confirmLeave) {
+  //       throw "Route change aborted.";
+  //     }
+  //   };
 
-    // Prevent copy, cut, paste, and other actions
-    const preventActions = (e: Event) => {
-      e.preventDefault();
-      e.stopPropagation();
-      return false;
-    };
+  //   // Prevent copy, cut, paste, and other actions
+  //   const preventActions = (e: Event) => {
+  //     e.preventDefault();
+  //     e.stopPropagation();
+  //     return false;
+  //   };
 
-    // Prevent context menu (right-click)
-    const preventContextMenu = (e: Event) => {
-      e.preventDefault();
-      e.stopPropagation();
-      return false;
-    };
+  //   // Prevent context menu (right-click)
+  //   const preventContextMenu = (e: Event) => {
+  //     e.preventDefault();
+  //     e.stopPropagation();
+  //     return false;
+  //   };
 
-    // Prevent text selection
-    const disableSelection = () => {
-      document.body.style.userSelect = "none";
-      document.body.style.webkitUserSelect = "none";
-      document.body.style.userSelect = "none";
-    };
+  //   // Prevent text selection
+  //   const disableSelection = () => {
+  //     document.body.style.userSelect = "none";
+  //     document.body.style.webkitUserSelect = "none";
+  //     document.body.style.userSelect = "none";
+  //   };
 
-    // Prevent keyboard shortcuts for copy, screenshot, and dev tools
-    const preventShortcuts = (e: KeyboardEvent) => {
-      // Block Ctrl+C, Ctrl+P, PrintScreen, F12, Ctrl+Shift+I, Ctrl+Shift+J, etc.
-      if (
-        e.key === "PrintScreen" ||
-        (e.ctrlKey && ["c", "p", "u", "s"].includes(e.key.toLowerCase())) ||
-        (e.metaKey && ["c", "p", "u", "s"].includes(e.key.toLowerCase())) ||
-        e.key === "F12" ||
-        (e.ctrlKey &&
-          e.shiftKey &&
-          ["i", "j", "c"].includes(e.key.toLowerCase())) ||
-        (e.metaKey &&
-          e.shiftKey &&
-          ["i", "j", "c"].includes(e.key.toLowerCase()))
-      ) {
-        e.preventDefault();
-        e.stopPropagation();
-        return false;
-      }
-    };
+  //   // Prevent keyboard shortcuts for copy, screenshot, and dev tools
+  //   const preventShortcuts = (e: KeyboardEvent) => {
+  //     // Block Ctrl+C, Ctrl+P, PrintScreen, F12, Ctrl+Shift+I, Ctrl+Shift+J, etc.
+  //     if (
+  //       e.key === "PrintScreen" ||
+  //       (e.ctrlKey && ["c", "p", "u", "s"].includes(e.key.toLowerCase())) ||
+  //       (e.metaKey && ["c", "p", "u", "s"].includes(e.key.toLowerCase())) ||
+  //       e.key === "F12" ||
+  //       (e.ctrlKey &&
+  //         e.shiftKey &&
+  //         ["i", "j", "c"].includes(e.key.toLowerCase())) ||
+  //       (e.metaKey &&
+  //         e.shiftKey &&
+  //         ["i", "j", "c"].includes(e.key.toLowerCase()))
+  //     ) {
+  //       e.preventDefault();
+  //       e.stopPropagation();
+  //       return false;
+  //     }
+  //   };
 
-    // Prevent drag and drop
-    const preventDrag = (e: Event) => {
-      e.preventDefault();
-      e.stopPropagation();
-      return false;
-    };
+  //   // Prevent drag and drop
+  //   const preventDrag = (e: Event) => {
+  //     e.preventDefault();
+  //     e.stopPropagation();
+  //     return false;
+  //   };
 
-    // Apply protections
-    disableSelection();
-    document.addEventListener("copy", preventActions, { capture: true });
-    document.addEventListener("cut", preventActions, { capture: true });
-    document.addEventListener("paste", preventActions, { capture: true });
-    document.addEventListener("contextmenu", preventContextMenu, {
-      capture: true,
-    });
-    document.addEventListener("keydown", preventShortcuts, { capture: true });
-    document.addEventListener("dragstart", preventDrag, { capture: true });
-    document.addEventListener("selectstart", preventActions, { capture: true });
+  //   // Apply protections
+  //   disableSelection();
+  //   document.addEventListener("copy", preventActions, { capture: true });
+  //   document.addEventListener("cut", preventActions, { capture: true });
+  //   document.addEventListener("paste", preventActions, { capture: true });
+  //   document.addEventListener("contextmenu", preventContextMenu, {
+  //     capture: true,
+  //   });
+  //   document.addEventListener("keydown", preventShortcuts, { capture: true });
+  //   document.addEventListener("dragstart", preventDrag, { capture: true });
+  //   document.addEventListener("selectstart", preventActions, { capture: true });
 
-    // Prevent navigation
-    window.addEventListener("beforeunload", handleBeforeUnload, {
-      capture: true,
-    });
-    window.history.pushState(null, "", window.location.href);
-    window.onpopstate = () => {
-      const confirmLeave = window.confirm(
-        "Testdan chiqmoqchisiz. Chiqsangiz qayta yechib bo'lmaydi!"
-      );
-      if (!confirmLeave) {
-        window.history.pushState(null, "", window.location.href);
-      }
-    };
-    window.addEventListener("hashchange", handleRouteChange, { capture: true });
+  //   // Prevent navigation
+  //   window.addEventListener("beforeunload", handleBeforeUnload, {
+  //     capture: true,
+  //   });
+  //   window.history.pushState(null, "", window.location.href);
+  //   window.onpopstate = () => {
+  //     const confirmLeave = window.confirm(
+  //       "Testdan chiqmoqchisiz. Chiqsangiz qayta yechib bo'lmaydi!"
+  //     );
+  //     if (!confirmLeave) {
+  //       window.history.pushState(null, "", window.location.href);
+  //     }
+  //   };
+  //   window.addEventListener("hashchange", handleRouteChange, { capture: true });
 
-    // Attempt to blur screen on potential screenshot attempt
-    const blurScreen = () => {
-      document.body.style.filter = "blur(10px)";
-      setTimeout(() => {
-        document.body.style.filter = "";
-      }, 100);
-    };
+  //   // Attempt to blur screen on potential screenshot attempt
+  //   const blurScreen = () => {
+  //     document.body.style.filter = "blur(10px)";
+  //     setTimeout(() => {
+  //       document.body.style.filter = "";
+  //     }, 100);
+  //   };
 
-    document.addEventListener("keyup", (e: KeyboardEvent) => {
-      if (e.key === "PrintScreen") {
-        blurScreen();
-      }
-    });
+  //   document.addEventListener("keyup", (e: KeyboardEvent) => {
+  //     if (e.key === "PrintScreen") {
+  //       blurScreen();
+  //     }
+  //   });
 
-    return () => {
-      // Clean up event listeners
-      document.removeEventListener("copy", preventActions, { capture: true });
-      document.removeEventListener("cut", preventActions, { capture: true });
-      document.removeEventListener("paste", preventActions, { capture: true });
-      document.removeEventListener("contextmenu", preventContextMenu, {
-        capture: true,
-      });
-      document.removeEventListener("keydown", preventShortcuts, {
-        capture: true,
-      });
-      document.removeEventListener("dragstart", preventDrag, { capture: true });
-      document.removeEventListener("selectstart", preventActions, {
-        capture: true,
-      });
-      window.removeEventListener("beforeunload", handleBeforeUnload, {
-        capture: true,
-      });
-      window.removeEventListener("hashchange", handleRouteChange, {
-        capture: true,
-      });
-      window.onpopstate = null;
-      document.body.style.userSelect = "";
-      document.body.style.webkitUserSelect = "";
-      document.body.style.userSelect = "";
-      document.body.style.filter = "";
-    };
-  }, []);
+  //   return () => {
+  //     // Clean up event listeners
+  //     document.removeEventListener("copy", preventActions, { capture: true });
+  //     document.removeEventListener("cut", preventActions, { capture: true });
+  //     document.removeEventListener("paste", preventActions, { capture: true });
+  //     document.removeEventListener("contextmenu", preventContextMenu, {
+  //       capture: true,
+  //     });
+  //     document.removeEventListener("keydown", preventShortcuts, {
+  //       capture: true,
+  //     });
+  //     document.removeEventListener("dragstart", preventDrag, { capture: true });
+  //     document.removeEventListener("selectstart", preventActions, {
+  //       capture: true,
+  //     });
+  //     window.removeEventListener("beforeunload", handleBeforeUnload, {
+  //       capture: true,
+  //     });
+  //     window.removeEventListener("hashchange", handleRouteChange, {
+  //       capture: true,
+  //     });
+  //     window.onpopstate = null;
+  //     document.body.style.userSelect = "";
+  //     document.body.style.webkitUserSelect = "";
+  //     document.body.style.userSelect = "";
+  //     document.body.style.filter = "";
+  //   };
+  // }, []);
 
   return (
     <>
