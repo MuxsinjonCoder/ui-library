@@ -58,33 +58,36 @@ export default function AppHeader() {
                 ? "text-white font-bold"
                 : "text-white opacity-70 font-medium"
             }`}
-            href={"/"}
+            href="/"
           >
-            {path === "/" && <Dot className="text-white size-10 -mr-3" />} Home
+            {path === "/" && <Dot className="text-white size-10 -mr-3" />}
+            Home
           </Link>
+
           <Link
             className={`flex items-center gap-0 ${
-              path === "/docs"
+              path?.startsWith("/docs")
                 ? "text-white font-bold"
                 : "text-white opacity-70 font-medium"
             }`}
-            href={"/docs"}
+            href="/docs"
           >
-            {path === "/docs" && <Dot className="text-white size-10 -mr-3" />}{" "}
+            {path?.startsWith("/docs") && (
+              <Dot className="text-white size-10 -mr-3" />
+            )}
             Docs
           </Link>
           <Link
             className={`flex items-center gap-0 ${
-              path === "/ui-components" || path?.includes("/ui-components")
+              path?.startsWith("/ui-components")
                 ? "text-white font-bold"
                 : "text-white opacity-70 font-medium"
             }`}
-            href={"/ui-components"}
+            href="/ui-components"
           >
-            {path === "/ui-components" ||
-              (path?.includes("/ui-components") && (
-                <Dot className="text-white size-10 -mr-3" />
-              ))}{" "}
+            {path?.startsWith("/ui-components") && (
+              <Dot className="text-white size-10 -mr-3" />
+            )}
             Components
           </Link>
         </div>

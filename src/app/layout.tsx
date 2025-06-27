@@ -40,34 +40,29 @@ export default function RootLayout({
     <html lang="en" className={`${roboto.variable} ${poppins.variable}`}>
       <body className="font-sans antialiased">
         <Providers>
-          <main>{children}</main>
-          <Toaster />
-          {/* <SidebarProvider>
+          <SidebarProvider>
             <main className="w-full">
-              <div className="flex items-start justify-between">
-                <div className="fixed left-0 top-0 bottom-0 z-50">
-                  <AppSidebar />
-                </div>
-                <div className="w-full flex flex-col gap-5 px-5 py-5">
-                  <div className="fixed top-0 right-0 left-0 xl:left-[251px] py-2 px-5 backdrop-blur-xl z-30">
+              <div className="flex flex-col gap-10 container mx-auto w-full">
+                <div className="z-50 fixed top-2 left-1/2 -translate-x-1/2 w-full">
+                  <div className="container mx-auto backdrop-blur-[3px] border-2 border-secondary py-2 px-4 rounded-full">
                     <AppHeader />
                   </div>
-                  <div className="xl:ml-[250px] mt-10">{children}</div>
                 </div>
-                <div className="fixed right-5 bottom-5 z-50">
-                  <Link href={"/tools"}>
-                    <Button
-                      className="border-2 border-primary"
-                      variant={"icon"}
-                      size={"sm"}
-                    >
-                      <PenTool />
-                    </Button>
-                  </Link>
-                </div>
+                <div className="w-auto mt-24">{children}</div>
+              </div>
+              <div className="fixed right-5 bottom-5 z-50">
+                <Link href={"/tools"}>
+                  <Button
+                    className="border-2 border-background text-background"
+                    variant={"icon"}
+                    size={"sm"}
+                  >
+                    <PenTool />
+                  </Button>
+                </Link>
               </div>
             </main>
-          </SidebarProvider> */}
+          </SidebarProvider>
         </Providers>
       </body>
     </html>

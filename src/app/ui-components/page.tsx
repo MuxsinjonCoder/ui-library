@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function ComponentsHome() {
   return (
-    <section className="w-full bg-gradient-to-br from-primary via-secondary to-primary bg-fixed py-16 px-4 md:px-8 text-primary-foreground">
+    <section className="w-full text-white mb-10">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight drop-shadow-lg">
