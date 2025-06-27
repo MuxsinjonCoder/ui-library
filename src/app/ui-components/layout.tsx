@@ -55,7 +55,7 @@ export default function RootLayout({
                     <div className="w-auto mt-24 lg:ml-[250px]">{children}</div>
                   </div>
                 </div>
-                <div className="fixed right-5 bottom-5 z-50">
+                {/* <div className="fixed right-5 bottom-5 z-50">
                   <Link href={"/tools"}>
                     <Button
                       className="border-2 border-background text-background"
@@ -65,7 +65,7 @@ export default function RootLayout({
                       <PenTool />
                     </Button>
                   </Link>
-                </div>
+                </div> */}
               </main>
             </SidebarProvider>
           </Providers>
