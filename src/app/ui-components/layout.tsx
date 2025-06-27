@@ -38,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${roboto.variable} ${poppins.variable}`}>
       <body className="font-sans antialiased">
-        <div className="overflow-y-auto fixed inset-0 bg-fixed animate-gradient bg-gradient-to-br from-primary via-secondary to-primary bg-[length:300%_300%] transition-all duration-1000">
+        <div className="overflow-y-auto z-50 fixed inset-0 bg-fixed animate-gradient bg-gradient-to-br from-primary via-secondary to-primary bg-[length:300%_300%] transition-all duration-1000">
           <Providers>
             <SidebarProvider>
               <main className=" w-full">
